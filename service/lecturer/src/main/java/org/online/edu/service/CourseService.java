@@ -7,6 +7,7 @@ import org.online.edu.entity.dto.CourseInfoDto;
 import org.online.edu.entity.vo.CourseInfoVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.CoursePublishVo;
+import org.online.edu.entity.vo.front.CourseFrontVo;
 
 /**
  * <p>
@@ -27,4 +28,6 @@ public interface CourseService extends IService<Course> {
     CoursePublishVo findCoursePublishVoById(String id);
 
     IPage pageByParam(CourseListVo courseListVo);
+
+    IPage pageByParam(CourseFrontVo courseFrontVo);
 }

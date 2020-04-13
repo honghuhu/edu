@@ -15,6 +15,7 @@ import org.online.edu.entity.dto.CourseInfoDto;
 import org.online.edu.entity.vo.CourseInfoVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.CoursePublishVo;
+import org.online.edu.entity.vo.front.CourseFrontVo;
 import org.online.edu.mapper.CourseMapper;
 import org.online.edu.service.CourseDescriptionService;
 import org.online.edu.service.CourseService;
@@ -80,5 +81,18 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
                 .eq(StringUtils.isNotEmpty(courseListVo.getStatus()), Course::getStatus, courseListVo.getStatus())
                 .orderByDesc(Course::getGmtModified)
                 .page(new Page<>(courseListVo.getCurrent(), courseListVo.getLimit()));
+    }
+
+    @Override
+    public IPage<Course> pageByParam(CourseFrontVo courseFrontVo) {
+        return new LambdaQueryChainWrapper<>(baseMapper)
+                .like(StringUtils.isNotEmpty(courseFrontVo.getTitle()), Course::getTitle, courseFrontVo.getTitle())
+                .eq(StringUtils.isNotEmpty(courseFrontVo.getTeacherId()), Course::getTeacherId, courseFrontVo.getTeacherId())
+                .eq(StringUtils.isNotEmpty(courseFrontVo.getSubjectParentId()), Course::getSubjectParentId, courseFrontVo.getSubjectParentId())
+                .eq(StringUtils.isNotEmpty(courseFrontVo.getSubjectId()), Course::getSubjectId, courseFrontVo.getSubjectId())
+                .orderBy(null != courseFrontVo.getBuyCountSort(), courseFrontVo.getBuyCountSort(), Course::getBuyCount)
+                .orderBy(null != courseFrontVo.getPriceSort(), courseFrontVo.getPriceSort(), Course::getPrice)
+                .orderBy(null != courseFrontVo.getGmtCreateSort(), courseFrontVo.getGmtCreateSort(), Course::getGmtCreate)
+                .page(new Page<>(courseFrontVo.getCurrent(), courseFrontVo.getLimit()));
     }
 }

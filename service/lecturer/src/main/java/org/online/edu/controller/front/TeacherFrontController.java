@@ -3,14 +3,21 @@ package org.online.edu.controller.front;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
+import org.online.edu.entity.Course;
+import org.online.edu.entity.Teacher;
+import org.online.edu.entity.dto.CourseDto;
 import org.online.edu.entity.dto.TeacherDto;
 import org.online.edu.entity.vo.TeacherListVo;
+import org.online.edu.service.CourseService;
 import org.online.edu.service.TeacherService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,6 +37,7 @@ import java.util.stream.Collectors;
 public class TeacherFrontController {
 
     private TeacherService teacherService;
+    private CourseService courseService;
 
     @ApiOperation(value = "讲师列表")
     @GetMapping("{page}/{limit}")
@@ -40,5 +48,16 @@ public class TeacherFrontController {
         IPage pageByParam = teacherService.pageByParam(teacherListVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(teacher -> BeanUtil.toBean(teacher, TeacherDto.class)).collect(Collectors.toList()));
         return R.ok(pageByParam);
+    }
+
+    @ApiOperation(value = "讲师详情")
+    @GetMapping("{id}")
+    public R detail(@PathVariable @ApiParam(name = "id", value = "讲师ID", required = true) String id) {
+        Teacher teacher = teacherService.getById(id);
+        List<Course> courses = new LambdaQueryChainWrapper<>(courseService.getBaseMapper()).eq(Course::getTeacherId, id).list();
+        return R.ok(new HashMap<String, Object>() {{
+            put("teacher", BeanUtil.toBean(teacher, TeacherDto.class));
+            put("courses", courses.stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
+        }});
     }
 }

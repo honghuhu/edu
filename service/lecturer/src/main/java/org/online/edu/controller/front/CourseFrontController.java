@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.online.edu.entity.dto.CourseDto;
 import org.online.edu.entity.vo.CourseListVo;
+import org.online.edu.entity.vo.front.CourseFrontVo;
 import org.online.edu.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +39,14 @@ public class CourseFrontController {
         courseListVo.setCurrent(page);
         courseListVo.setLimit(limit);
         IPage pageByParam = courseService.pageByParam(courseListVo);
+        pageByParam.setRecords((List) pageByParam.getRecords().stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
+        return R.ok(pageByParam);
+    }
+
+    @ApiOperation(value = "课程列表")
+    @PostMapping("page")
+    public R<IPage<CourseDto>> page(@RequestBody CourseFrontVo courseFrontVo) {
+        IPage pageByParam = courseService.pageByParam(courseFrontVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
         return R.ok(pageByParam);
     }
