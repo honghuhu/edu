@@ -1,0 +1,35 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: cms
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/edu?serverTimezone=GMT%2B8
+    username: root
+    password:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd hh:mm:ss
+  redis:
+    host: 10.211.55.3
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        #最大阻塞等待时间(负数表示没限制)
+        max-idle: 5
+        min-idle: 0
+
+mybatis-plus:
+  mapper-locations: classpath:org/online/edu/mapper/xml/*xml
+mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

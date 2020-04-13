@@ -1,0 +1,21 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: vod
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+aliyun:
+  vod:
+    file:
+      keyid: LTAI4FkydZnNUWdxQw8AebAHe
+      keysecret: CvyrtbK2dCQlovqElwL3ZEaA3fHdrPr
