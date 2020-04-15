@@ -18,4 +18,27 @@
       WHERE
           c.id = #{id}
     </select>
+    <select id="selectCourseFrontDtoById" resultType="org.online.edu.entity.dto.front.CourseFrontDto">
+        SELECT
+          c.id,
+          c.title,
+          c.cover,
+          c.lesson_num AS lessonNum,
+          CONVERT(c.price, DECIMAL(8,2)) AS price,
+          c.buy_count AS buyCount,
+          c.view_count AS viewCount,
+          c.gmt_create AS gmtCreate,
+          d.description,
+          s1.id AS subjectId, s1.title AS tier1Subject,
+          s2.id AS subjectParentId, s2.title AS tier2Subject,
+          t.name AS teacherName, t.intro, t.avatar
+      FROM
+          edu_course c
+          LEFT JOIN edu_course_description d ON c.id = d.id
+          LEFT JOIN edu_teacher t ON c.teacher_id = t.id
+          LEFT JOIN edu_subject s1 ON c.subject_parent_id = s1.id
+          LEFT JOIN edu_subject s2 ON c.subject_id = s2.id
+      WHERE
+          c.id = #{id}
+    </select>
 </mapper>

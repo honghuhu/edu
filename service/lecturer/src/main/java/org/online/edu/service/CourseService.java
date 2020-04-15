@@ -1,9 +1,10 @@
 package org.online.edu.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import org.online.edu.entity.Course;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.online.edu.entity.Course;
 import org.online.edu.entity.dto.CourseInfoDto;
+import org.online.edu.entity.dto.front.CourseFrontDto;
 import org.online.edu.entity.vo.CourseInfoVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.CoursePublishVo;
@@ -30,4 +31,6 @@ public interface CourseService extends IService<Course> {
     IPage pageByParam(CourseListVo courseListVo);
 
     IPage pageByParam(CourseFrontVo courseFrontVo);
+
+    CourseFrontDto findCourseFrontDtoById(String id);
 }

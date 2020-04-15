@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.online.edu.entity.Chapter;
 import org.online.edu.entity.Video;
 import org.online.edu.entity.vo.ChapterVo;
+import org.online.edu.entity.vo.VideoVo;
 import org.online.edu.mapper.ChapterMapper;
 import org.online.edu.service.ChapterService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -40,7 +41,7 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
             ChapterVo chapterVo = BeanUtil.toBean(chapter, ChapterVo.class);
             // 获取所有小结
             List<Video> videos = videoService.list(new LambdaQueryWrapper<Video>().eq(Video::getCourseId, courseId).eq(Video::getChapterId, chapter.getId()));
-            chapterVo.setChildren(videos.stream().map(video -> BeanUtil.toBean(video, ChapterVo.class)).collect(Collectors.toList()));
+            chapterVo.setChildren(videos.stream().map(video -> BeanUtil.toBean(video, VideoVo.class)).collect(Collectors.toList()));
             return chapterVo;
         }).collect(Collectors.toList());
     }

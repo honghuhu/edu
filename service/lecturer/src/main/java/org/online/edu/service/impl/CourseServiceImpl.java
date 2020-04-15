@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import org.online.common.exception.handler.EduException;
 import org.online.edu.entity.Course;
 import org.online.edu.entity.CourseDescription;
 import org.online.edu.entity.dto.CourseInfoDto;
+import org.online.edu.entity.dto.front.CourseFrontDto;
 import org.online.edu.entity.vo.CourseInfoVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.CoursePublishVo;
@@ -20,6 +22,7 @@ import org.online.edu.mapper.CourseMapper;
 import org.online.edu.service.CourseDescriptionService;
 import org.online.edu.service.CourseService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 /**
  * <p>
@@ -90,9 +93,15 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
                 .eq(StringUtils.isNotEmpty(courseFrontVo.getTeacherId()), Course::getTeacherId, courseFrontVo.getTeacherId())
                 .eq(StringUtils.isNotEmpty(courseFrontVo.getSubjectParentId()), Course::getSubjectParentId, courseFrontVo.getSubjectParentId())
                 .eq(StringUtils.isNotEmpty(courseFrontVo.getSubjectId()), Course::getSubjectId, courseFrontVo.getSubjectId())
-                .orderBy(null != courseFrontVo.getBuyCountSort(), courseFrontVo.getBuyCountSort(), Course::getBuyCount)
-                .orderBy(null != courseFrontVo.getPriceSort(), courseFrontVo.getPriceSort(), Course::getPrice)
-                .orderBy(null != courseFrontVo.getGmtCreateSort(), courseFrontVo.getGmtCreateSort(), Course::getGmtCreate)
+                .orderBy(!ObjectUtils.isEmpty(courseFrontVo.getBuyCountSort()), ObjectUtils.isEmpty(courseFrontVo.getBuyCountSort()) ? true : courseFrontVo.getBuyCountSort(), Course::getBuyCount)
+                .orderBy(!ObjectUtils.isEmpty(courseFrontVo.getPriceSort()), ObjectUtils.isEmpty(courseFrontVo.getPriceSort()) ? true : courseFrontVo.getPriceSort(), Course::getPrice)
+                .orderBy(!ObjectUtils.isEmpty(courseFrontVo.getGmtCreateSort()), ObjectUtils.isEmpty(courseFrontVo.getGmtCreateSort()) ? true : courseFrontVo.getGmtCreateSort(), Course::getGmtCreate)
                 .page(new Page<>(courseFrontVo.getCurrent(), courseFrontVo.getLimit()));
+    }
+
+    @Override
+    public CourseFrontDto findCourseFrontDtoById(String id) {
+        new LambdaUpdateChainWrapper<>(baseMapper).setSql("view_count = view_count + 1").eq(Course::getId, id).update();
+        return baseMapper.selectCourseFrontDtoById(id);
     }
 }

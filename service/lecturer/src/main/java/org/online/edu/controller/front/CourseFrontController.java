@@ -5,13 +5,18 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import org.online.edu.entity.dto.CourseDto;
+import org.online.edu.entity.dto.front.CourseFrontDto;
+import org.online.edu.entity.vo.ChapterVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.front.CourseFrontVo;
+import org.online.edu.service.ChapterService;
 import org.online.edu.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +36,7 @@ import java.util.stream.Collectors;
 public class CourseFrontController {
 
     private CourseService courseService;
+    private ChapterService chapterService;
 
     @ApiOperation(value = "课程列表")
     @GetMapping("{page}/{limit}")
@@ -49,5 +55,18 @@ public class CourseFrontController {
         IPage pageByParam = courseService.pageByParam(courseFrontVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
         return R.ok(pageByParam);
+    }
+
+    @ApiOperation(value = "课程详情")
+    @GetMapping("{id}")
+    public R detail(@PathVariable @ApiParam(name = "courseId", value = "课程ID", required = true) String id) {
+        // 课程详情
+        CourseFrontDto courseFrontDto = courseService.findCourseFrontDtoById(id);
+        // 小结集合
+        List<ChapterVo> chapters = chapterService.chapterVideo(id);
+        return R.ok(new HashMap<String, Object>(2) {{
+            put("course", courseFrontDto);
+            put("chapters", chapters);
+        }});
     }
 }

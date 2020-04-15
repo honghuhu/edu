@@ -1,11 +1,11 @@
 - Maven 导包失败问题
 
 ![](https://imgkr.cn-bj.ufileos.com/1e349549-85ab-46fc-8206-04c3304fd0b5.png)
- 1. 去仓库将下载失败的依赖版本删掉
-
+    
+    1. 去仓库将下载失败的依赖版本删掉
 ![](https://imgkr.cn-bj.ufileos.com/b6e82c15-c9b8-4535-baa5-a15e603d7b13.png)
-2. 重新 Reimport
 
+    2. 重新 Reimport
 ![](https://imgkr.cn-bj.ufileos.com/b4545d48-1487-4efd-a6a2-b5869b87a226.png)
 
 - 安装本地 jar 到本地仓库
@@ -24,7 +24,7 @@ cd ~/Downloads/extensions/nacos-1.2.1 && sh bin/startup.sh -m standalone
 
 - 新建模块后, 双击空文件夹, 可以设置 Project
 
-- 显示 Service 窗口, 编辑 (workspace.xml)
+- 显示 Services 窗口, 编辑 (workspace.xml)
 ```
   <component name="RunDashboard">
     <option name="configurationTypes">
