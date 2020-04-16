@@ -16,4 +16,7 @@ public class VideoVo {
 
     @ApiModelProperty(value = "是否免费: 0收费 1免费")
     private Integer isFree;
+
+    @ApiModelProperty(value = "云端视频资源")
+    private String videoSourceId;
 }
