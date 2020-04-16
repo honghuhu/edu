@@ -9,9 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ucenter</artifactId>
+    <artifactId>order</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <description>用户中心服务</description>
+    <description>订单服务</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.wxpay</groupId>
+            <artifactId>wxpay-sdk</artifactId>
+            <version>0.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+    </dependencies>
 </project>

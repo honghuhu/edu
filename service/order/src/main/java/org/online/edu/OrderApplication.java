@@ -1,6 +1,5 @@
 package org.online.edu;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -10,11 +9,10 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("org.online.edu.mapper")
 @ComponentScan(basePackages = {"org.online"})
-public class LecturerApplication {
+public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LecturerApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 }
