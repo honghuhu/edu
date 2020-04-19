@@ -19,6 +19,7 @@
         <module>msm</module>
         <module>ucenter</module>
         <module>order</module>
+        <module>statistics</module>
     </modules>
 
     <dependencies>

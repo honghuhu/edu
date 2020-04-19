@@ -2,7 +2,7 @@ package org.online.edu.entity.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.online.common.entity.BaseDto;
+import org.online.edu.entity.BaseDto;
 
 @Data
 public class BannerDto extends BaseDto {

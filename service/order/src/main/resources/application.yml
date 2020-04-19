@@ -26,7 +26,3 @@ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
 mybatis-plus:
   mapper-locations: classpath:org/online/edu/mapper/xml/*xml
 mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-# 配置 logback 需将下边日志删除
-#logging:
-#  level:
-#    root: INFO

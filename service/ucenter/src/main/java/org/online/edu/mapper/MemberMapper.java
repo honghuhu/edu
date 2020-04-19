@@ -1,7 +1,7 @@
 package org.online.edu.mapper;
 
-import org.online.edu.entity.Member;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.online.edu.entity.Member;
 
 /**
  * <p>
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MemberMapper extends BaseMapper<Member> {
 
+    Integer countRegisterDay(String day);
 }

@@ -5,12 +5,11 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.online.common.utils.JwtUtils;
 import org.online.edu.entity.Member;
 import org.online.edu.entity.vo.WxLoginVo;
 import org.online.edu.service.MemberService;
 import org.online.edu.utils.ConstantProperties;
-import org.springframework.http.converter.StringHttpMessageConverter;
+import org.online.edu.utils.JwtUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @CrossOrigin

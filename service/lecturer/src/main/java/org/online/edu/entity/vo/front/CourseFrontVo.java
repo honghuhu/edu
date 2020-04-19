@@ -3,7 +3,7 @@ package org.online.edu.entity.vo.front;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.online.common.entity.PageVo;
+import org.online.edu.entity.PageVo;
 
 @Data
 @ApiModel(value = "课程查询对象", description = "课程查询对象封装")

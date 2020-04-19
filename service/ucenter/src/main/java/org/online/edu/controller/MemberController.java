@@ -3,12 +3,12 @@ package org.online.edu.controller;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.api.R;
 import lombok.AllArgsConstructor;
-import org.online.common.utils.JwtUtils;
 import org.online.edu.entity.Member;
 import org.online.edu.entity.dto.MemberDto;
 import org.online.edu.entity.vo.MemberVo;
 import org.online.edu.entity.vo.RegisterVo;
 import org.online.edu.service.MemberService;
+import org.online.edu.utils.JwtUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

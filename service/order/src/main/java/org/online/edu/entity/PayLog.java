@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import org.online.common.entity.BasePo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

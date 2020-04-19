@@ -5,9 +5,9 @@ import com.aliyun.vod.upload.req.UploadStreamRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.online.common.exception.handler.EduException;
-import org.online.edu.utils.ConstantProperties;
+import org.online.edu.exception.handler.EduException;
 import org.online.edu.service.VideoService;
+import org.online.edu.utils.ConstantProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

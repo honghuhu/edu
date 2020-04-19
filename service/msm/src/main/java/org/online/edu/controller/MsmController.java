@@ -4,7 +4,7 @@ import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.extension.api.R;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.online.common.constant.RedisConstant;
+import org.online.edu.constant.RedisConstant;
 import org.online.edu.service.MsmService;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;

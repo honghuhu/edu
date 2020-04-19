@@ -1,0 +1,28 @@
+server:
+  port: 8007
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: statistics
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/edu?serverTimezone=GMT%2B8
+    username: root
+    password:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd hh:mm:ss
+
+#开启熔断机制
+feign.hystrix.enabled: true
+# 设置hystrix超时时间，默认1000ms
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
+
+mybatis-plus:
+  mapper-locations: classpath:org/online/edu/mapper/xml/*xml
+mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

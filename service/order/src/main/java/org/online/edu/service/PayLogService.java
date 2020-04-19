@@ -1,7 +1,9 @@
 package org.online.edu.service;
 
-import org.online.edu.entity.PayLog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.online.edu.entity.PayLog;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +15,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PayLogService extends IService<PayLog> {
 
+    Map<String, String> createNative(String orderNo);
+
+    Map<String, String> queryPayStatus(String orderNo);
+
+    void updateOrderStatus(Map<String, String> map);
 }

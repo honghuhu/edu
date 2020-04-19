@@ -2,7 +2,6 @@ package org.online.edu.entity.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.online.common.entity.BaseDto;
 
 @Data
 public class BannerVo {

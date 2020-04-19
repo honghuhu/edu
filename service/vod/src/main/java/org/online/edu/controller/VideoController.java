@@ -10,7 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import org.online.common.exception.handler.EduException;
+import org.online.edu.exception.handler.EduException;
 import org.online.edu.service.VideoService;
 import org.online.edu.utils.AliyunVodSDKUtils;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ import static org.online.edu.utils.AliyunVodSDKUtils.initVodClient;
 @CrossOrigin
 @RestController
 @AllArgsConstructor
-@RequestMapping("/video")
+@RequestMapping("video")
 public class VideoController {
 
     private VideoService videoService;

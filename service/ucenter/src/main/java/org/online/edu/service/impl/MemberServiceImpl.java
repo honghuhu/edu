@@ -6,14 +6,14 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import lombok.AllArgsConstructor;
-import org.online.common.constant.RedisConstant;
-import org.online.common.exception.handler.EduException;
-import org.online.common.utils.JwtUtils;
+import org.online.edu.constant.RedisConstant;
 import org.online.edu.entity.Member;
 import org.online.edu.entity.vo.MemberVo;
 import org.online.edu.entity.vo.RegisterVo;
+import org.online.edu.exception.handler.EduException;
 import org.online.edu.mapper.MemberMapper;
 import org.online.edu.service.MemberService;
+import org.online.edu.utils.JwtUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -64,5 +64,10 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         entity.setIsDisabled(false);
         entity.setAvatar("https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg");
         save(entity);
+    }
+
+    @Override
+    public Integer countRegisterDay(String day) {
+        return baseMapper.countRegisterDay(day);
     }
 }

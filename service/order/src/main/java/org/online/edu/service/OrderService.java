@@ -1,7 +1,7 @@
 package org.online.edu.service;
 
-import org.online.edu.entity.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.online.edu.entity.Order;
 
 /**
  * <p>
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OrderService extends IService<Order> {
 
+    String save(String courseId, String memberId);
 }
