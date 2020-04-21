@@ -1,0 +1,46 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: acl
+          uri: lb://acl
+          predicates:
+            - Path=/acl/**
+        - id: cms
+          uri: lb://cms
+          predicates:
+            - Path=/cms/**
+        - id: lecturer
+          uri: lb://lecturer
+          predicates:
+            - Path=/lecturer/**
+        - id: msm
+          uri: lb://msm
+          predicates:
+            - Path=/msm/**
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+        - id: statistics
+          uri: lb://statistics
+          predicates:
+            - Path=/statistics/**
+        - id: ucenter
+          uri: lb://ucenter
+          predicates:
+            - Path=/ucenter/**
+        - id: vod
+          uri: lb://vod
+          predicates:
+            - Path=/vod/**
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
