@@ -12,7 +12,6 @@ import org.online.edu.utils.ConstantProperties;
 import org.online.edu.utils.JwtUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 import java.nio.charset.Charset;
 
 @Slf4j
-@CrossOrigin
 @Controller
 @AllArgsConstructor
 @RequestMapping("wx")

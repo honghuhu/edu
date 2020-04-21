@@ -22,7 +22,6 @@ import javax.validation.Valid;
  * @author 007
  * @since 2020-04-11
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("member")

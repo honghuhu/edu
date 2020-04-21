@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
  * @author 007
  * @since 2020-03-28
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @Api(tags = {"课程前台接口"})

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@CrossOrigin
 @RestController
 @RequestMapping("user")
 public class UserController {

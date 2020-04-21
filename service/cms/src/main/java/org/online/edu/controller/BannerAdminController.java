@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
  * @author 007
  * @since 2020-04-10
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("banner-admin")

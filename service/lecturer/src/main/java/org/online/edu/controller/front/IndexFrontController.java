@@ -10,7 +10,6 @@ import org.online.edu.entity.dto.CourseDto;
 import org.online.edu.entity.dto.TeacherDto;
 import org.online.edu.service.CourseService;
 import org.online.edu.service.TeacherService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("index-front")

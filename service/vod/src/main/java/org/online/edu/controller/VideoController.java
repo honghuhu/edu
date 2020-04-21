@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import static org.online.edu.utils.AliyunVodSDKUtils.initVodClient;
 
 @Api
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("video")

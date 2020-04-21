@@ -19,7 +19,6 @@ import java.util.List;
  * @author 007
  * @since 2020-04-01
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("chapter")

@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
  * @author 007
  * @since 2020-04-01
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("course")

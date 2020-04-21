@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author 007
  * @since 2020-04-16
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("order")

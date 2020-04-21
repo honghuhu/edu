@@ -15,7 +15,10 @@ import org.online.edu.entity.dto.TeacherDto;
 import org.online.edu.entity.vo.TeacherListVo;
 import org.online.edu.service.CourseService;
 import org.online.edu.service.TeacherService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +32,6 @@ import java.util.stream.Collectors;
  * @author 007
  * @since 2020-03-28
  */
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 @Api(tags = {"讲师前台接口"})
