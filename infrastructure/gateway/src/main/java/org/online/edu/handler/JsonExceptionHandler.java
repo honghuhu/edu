@@ -28,10 +28,8 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
     @Override
     protected Map<String, Object> getErrorAttributes(ServerRequest request, boolean includeStackTrace) {
         return new HashMap<String, Object>(4) {{
-            put("success", false);
             put("code", 20005);
-            put("message", "网关失败");
-            put("data", null);
+            put("msg", "网关失败");
         }};
     }
 

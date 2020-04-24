@@ -13,7 +13,7 @@ public class ResponseUtils {
     public static void out(HttpServletResponse response, R r) {
         ObjectMapper mapper = new ObjectMapper();
         response.setStatus(HttpStatus.HTTP_OK);
-        response.setContentType(MediaType.JSON_UTF_8.type());
+        response.setContentType(MediaType.JSON_UTF_8.toString());
         try {
             mapper.writeValue(response.getWriter(), r);
         } catch (IOException e) {
