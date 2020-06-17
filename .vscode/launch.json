@@ -1,0 +1,78 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-AclApplication<acl>",
+            "request": "launch",
+            "mainClass": "org.online.edu.AclApplication",
+            "projectName": "acl",
+            "vmArgs": "-Dspring.profiles.active=local -Dserver.port=8006 -Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CmsApplication<cms>",
+            "request": "launch",
+            "mainClass": "org.online.edu.CmsApplication",
+            "projectName": "cms",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LecturerApplication<lecturer>",
+            "request": "launch",
+            "mainClass": "org.online.edu.LecturerApplication",
+            "projectName": "lecturer",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MsmApplication<msm>",
+            "request": "launch",
+            "mainClass": "org.online.edu.MsmApplication",
+            "projectName": "msm",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OrderApplication<order>",
+            "request": "launch",
+            "mainClass": "org.online.edu.OrderApplication",
+            "projectName": "order",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-StatisticsApplication<statistics>",
+            "request": "launch",
+            "mainClass": "org.online.edu.StatisticsApplication",
+            "projectName": "statistics",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-UCenterApplication<ucenter>",
+            "request": "launch",
+            "mainClass": "org.online.edu.UCenterApplication",
+            "projectName": "ucenter",
+            "vmArgs": "-Xms128m -Xmx128m"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VodApplication<vod>",
+            "request": "launch",
+            "mainClass": "org.online.edu.VodApplication",
+            "projectName": "vod",
+            "vmArgs": "-Xms128m -Xmx128m"
+        }
+    ]
+}

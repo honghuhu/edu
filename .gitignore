@@ -61,3 +61,6 @@ gen_code
 
 ### node ###
 node_modules
+
+### vscode ###
+settings.json
