@@ -96,24 +96,6 @@
         </dependency>
     </dependencies>
     <build>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <artifactId>maven-resources-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <encoding>utf-8</encoding>-->
-<!--                    <useDefaultDelimiters>true</useDefaultDelimiters>-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <directory>src/main/resource</directory>-->
-<!--                            <includes>-->
-<!--                                <include>**/*.xml</include>-->
-<!--                            </includes>-->
-<!--                            <filtering>false</filtering>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -121,6 +103,12 @@
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
             </resource>
         </resources>
     </build>
