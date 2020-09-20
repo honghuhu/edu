@@ -2,7 +2,6 @@ package org.online.edu.controller.front;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -43,23 +43,23 @@ public class TeacherFrontController {
 
     @ApiOperation(value = "讲师列表")
     @GetMapping("{page}/{limit}")
-    public R<IPage<TeacherDto>> page(@PathVariable Integer page, @PathVariable Integer limit) {
+    public IPage<TeacherDto> page(@PathVariable Integer page, @PathVariable Integer limit) {
         TeacherListVo teacherListVo = new TeacherListVo();
         teacherListVo.setCurrent(page);
         teacherListVo.setLimit(limit);
         IPage pageByParam = teacherService.pageByParam(teacherListVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(teacher -> BeanUtil.toBean(teacher, TeacherDto.class)).collect(Collectors.toList()));
-        return R.ok(pageByParam);
+        return pageByParam;
     }
 
     @ApiOperation(value = "讲师详情")
     @GetMapping("{id}")
-    public R detail(@PathVariable @ApiParam(name = "id", value = "讲师ID", required = true) String id) {
+    public Map<String, Object> detail(@PathVariable @ApiParam(name = "id", value = "讲师ID", required = true) String id) {
         Teacher teacher = teacherService.getById(id);
         List<Course> courses = new LambdaQueryChainWrapper<>(courseService.getBaseMapper()).eq(Course::getTeacherId, id).list();
-        return R.ok(new HashMap<String, Object>() {{
+        return new HashMap<String, Object>() {{
             put("teacher", BeanUtil.toBean(teacher, TeacherDto.class));
             put("courses", courses.stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
-        }});
+        }};
     }
 }

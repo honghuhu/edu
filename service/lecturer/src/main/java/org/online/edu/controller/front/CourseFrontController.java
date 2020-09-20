@@ -2,7 +2,6 @@ package org.online.edu.controller.front;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -43,36 +43,36 @@ public class CourseFrontController {
 
     @ApiOperation(value = "课程列表")
     @GetMapping("{page}/{limit}")
-    public R<IPage<CourseDto>> page(@PathVariable Integer page, @PathVariable Integer limit) {
+    public IPage<CourseDto> page(@PathVariable Integer page, @PathVariable Integer limit) {
         CourseListVo courseListVo = new CourseListVo();
         courseListVo.setCurrent(page);
         courseListVo.setLimit(limit);
         IPage pageByParam = courseService.pageByParam(courseListVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
-        return R.ok(pageByParam);
+        return pageByParam;
     }
 
     @ApiOperation(value = "课程列表")
     @PostMapping("page")
-    public R<IPage<CourseDto>> page(@RequestBody CourseFrontVo courseFrontVo) {
+    public IPage<CourseDto> page(@RequestBody CourseFrontVo courseFrontVo) {
         IPage pageByParam = courseService.pageByParam(courseFrontVo);
         pageByParam.setRecords((List) pageByParam.getRecords().stream().map(course -> BeanUtil.toBean(course, CourseDto.class)).collect(Collectors.toList()));
-        return R.ok(pageByParam);
+        return pageByParam;
     }
 
     @ApiOperation(value = "课程详情")
     @GetMapping("{id}")
-    public R detail(@PathVariable @ApiParam(name = "courseId", value = "课程ID", required = true) String id, HttpServletRequest request) {
+    public Map<String, Object> detail(@PathVariable @ApiParam(name = "courseId", value = "课程ID", required = true) String id, HttpServletRequest request) {
         // 课程详情
         CourseFrontDto courseFrontDto = courseService.findCourseFrontDtoById(id);
         // 小结集合
         List<ChapterVo> chapters = chapterService.chapterVideo(id);
         // 是否购买
         boolean isBuy = orderClient.isBuyCourse(JwtUtils.getMemberIdByJwtToken(request), id);
-        return R.ok(new HashMap<String, Object>(3) {{
+        return new HashMap<String, Object>(3) {{
             put("course", courseFrontDto);
             put("chapters", chapters);
             put("isBuy", isBuy);
-        }});
+        }};
     }
 }

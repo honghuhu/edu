@@ -1,6 +1,5 @@
 package org.online.edu.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.online.edu.entity.dto.TreeSubjectDto;
@@ -30,14 +29,14 @@ public class SubjectController {
 
     @ApiOperation(value = "添加讲师")
     @PostMapping("import")
-    public R<Boolean> importSubject(MultipartFile multipartFile) {
+    public Boolean importSubject(MultipartFile multipartFile) {
         subjectService.importSubject(multipartFile);
-        return R.ok(true);
+        return true;
     }
 
     @ApiOperation(value = "课程分类Tree")
     @GetMapping("tree")
-    public R<List<TreeSubjectDto>> treeSubject() {
-        return R.ok(subjectService.tree());
+    public List<TreeSubjectDto> treeSubject() {
+        return subjectService.tree();
     }
 }

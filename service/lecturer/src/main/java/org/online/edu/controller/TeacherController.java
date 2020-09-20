@@ -37,24 +37,24 @@ public class TeacherController {
 
     @ApiOperation(value = "讲师列表")
     @PostMapping("page")
-    public R<IPage<TeacherDto>> page(@RequestBody TeacherListVo teacherListVo) {
+    public IPage<TeacherDto> page(@RequestBody TeacherListVo teacherListVo) {
         IPage page = teacherService.pageByParam(teacherListVo);
         page.setRecords((List) page.getRecords().stream().map(teacher -> BeanUtil.toBean(teacher, TeacherDto.class)).collect(Collectors.toList()));
-        return R.ok(page);
+        return page;
     }
 
     @ApiOperation(value = "讲师列表")
     @GetMapping("all")
-    public R<List<TeacherDto>> all() {
+    public List<TeacherDto> all() {
         List<Teacher> teachers = teacherService.list(new QueryWrapper<>());
-        return R.ok(teachers.stream().map(teacher -> BeanUtil.toBean(teacher, TeacherDto.class)).collect(Collectors.toList()));
+        return teachers.stream().map(teacher -> BeanUtil.toBean(teacher, TeacherDto.class)).collect(Collectors.toList());
     }
 
     @ApiOperation(value = "添加讲师")
     @PostMapping("save")
-    public R<Boolean> save(@Valid @RequestBody TeacherVo teacherVo) {
+    public Boolean save(@Valid @RequestBody TeacherVo teacherVo) {
         teacherService.save(BeanUtil.toBean(teacherVo, Teacher.class));
-        return R.ok(true);
+        return true;
     }
 
     @ApiOperation(value = "更新讲师")
