@@ -8,7 +8,7 @@ import com.github.wxpay.sdk.WXPayUtil;
 import lombok.AllArgsConstructor;
 import org.online.edu.entity.Order;
 import org.online.edu.entity.PayLog;
-import org.online.edu.exception.handler.EduException;
+import org.online.edu.exception.EduException;
 import org.online.edu.mapper.PayLogMapper;
 import org.online.edu.service.OrderService;
 import org.online.edu.service.PayLogService;

@@ -2,7 +2,7 @@ package org.online.edu.client.fallback;
 
 import org.online.edu.client.UCenterClient;
 import org.online.edu.entity.dto.MemberDto;
-import org.online.edu.exception.handler.EduException;
+import org.online.edu.exception.EduException;
 import org.springframework.stereotype.Component;
 
 @Component

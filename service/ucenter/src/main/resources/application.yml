@@ -39,3 +39,8 @@ wx:
 mybatis-plus:
   mapper-locations: classpath:org/online/edu/mapper/xml/*xml
 mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    io.swagger: ERROR
+    com.filter.LoggingFilter: DEBUG

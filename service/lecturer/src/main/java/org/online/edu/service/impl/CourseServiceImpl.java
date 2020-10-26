@@ -17,7 +17,7 @@ import org.online.edu.entity.vo.CourseInfoVo;
 import org.online.edu.entity.vo.CourseListVo;
 import org.online.edu.entity.vo.CoursePublishVo;
 import org.online.edu.entity.vo.front.CourseFrontVo;
-import org.online.edu.exception.handler.EduException;
+import org.online.edu.exception.EduException;
 import org.online.edu.mapper.CourseMapper;
 import org.online.edu.service.CourseDescriptionService;
 import org.online.edu.service.CourseService;

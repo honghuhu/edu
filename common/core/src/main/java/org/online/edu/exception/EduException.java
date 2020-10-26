@@ -1,4 +1,4 @@
-package org.online.edu.exception.handler;
+package org.online.edu.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

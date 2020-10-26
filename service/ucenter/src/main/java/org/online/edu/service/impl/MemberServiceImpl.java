@@ -10,7 +10,7 @@ import org.online.edu.constant.RedisConstant;
 import org.online.edu.entity.Member;
 import org.online.edu.entity.vo.MemberVo;
 import org.online.edu.entity.vo.RegisterVo;
-import org.online.edu.exception.handler.EduException;
+import org.online.edu.exception.EduException;
 import org.online.edu.mapper.MemberMapper;
 import org.online.edu.service.MemberService;
 import org.online.edu.utils.JwtUtils;

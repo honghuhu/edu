@@ -19,3 +19,8 @@ aliyun:
     file:
       keyid: LTAI4FkydZnNUWdxQw8AebAHe
       keysecret: CvyrtbK2dCQlovqElwL3ZEaA3fHdrPr
+
+logging:
+  level:
+    io.swagger: ERROR
+    com.filter.LoggingFilter: DEBUG
