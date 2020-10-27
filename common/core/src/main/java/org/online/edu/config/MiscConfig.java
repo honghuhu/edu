@@ -1,7 +1,5 @@
 package org.online.edu.config;
 
-import org.online.edu.filter.LoggingFilter;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,12 +8,5 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 public class MiscConfig {
-    @Bean
-    public LoggingFilter loggingFilter() {
-        LoggingFilter filter = new LoggingFilter();
-        filter.setIncludeQueryString(true);
-        filter.setIncludePayload(true);
-        filter.setMaxPayloadLength(1024);
-        return filter;
-    }
+
 }

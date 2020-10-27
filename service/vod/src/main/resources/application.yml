@@ -23,4 +23,4 @@ aliyun:
 logging:
   level:
     io.swagger: ERROR
-    com.filter.LoggingFilter: DEBUG
+    org.online.edu.filter.LoggingFilter: DEBUG

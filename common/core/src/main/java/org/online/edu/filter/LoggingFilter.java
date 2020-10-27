@@ -5,11 +5,19 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
+@Component
 public class LoggingFilter extends CommonsRequestLoggingFilter {
 
     private static final List<String> EXCLUDE_LIST = new ArrayList<>();
+
+    public LoggingFilter() {
+        setIncludeQueryString(true);
+        setIncludePayload(true);
+        setMaxPayloadLength(1024);
+    }
 
     static {
         EXCLUDE_LIST.add("/readiness/health");
