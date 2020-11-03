@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>acl</module>
         <module>lecturer</module>
         <module>vod</module>
         <module>cms</module>

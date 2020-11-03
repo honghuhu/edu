@@ -6,10 +6,7 @@
     <modules>
         <module>service</module>
         <module>common</module>
-        <module>common/utils</module>
-        <module>service/acl</module>
         <module>infrastructure</module>
-        <module>infrastructure/gateway</module>
     </modules>
 
     <parent>
