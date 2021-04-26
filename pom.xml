@@ -39,7 +39,7 @@
         <xxl.job.version>2.1.1</xxl.job.version>
         <security.oauth.version>2.3.6.RELEASE</security.oauth.version>
         <activiti.version>5.22.0</activiti.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <mybatis-plus-boot-starter.version>3.3.0</mybatis-plus-boot-starter.version>
         <mybatis-plus-generator.version>3.3.1.tmp</mybatis-plus-generator.version>
         <velocity-engine-core.version>2.2</velocity-engine-core.version>
