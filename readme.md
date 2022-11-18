@@ -20,3 +20,14 @@ cd ~/Downloads/extensions/nacos-1.2.1 && sh bin/startup.sh -m standalone
     </option>
   </component>
 ```
+
+### docker 安装 mysql
+```bash
+docker search mysql
+docker pull mysql:latest
+docker run --name mysql-oeieo -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker exec -it mysql-oeieo bash
+mysql -h0.0.0.0 -uroot -p
+CREATE USER 'oeieo'@'%' IDENTIFIED WITH mysql_native_password BY 'oeieo';
+GRANT ALL PRIVILEGES ON *.* TO 'oeieo'@'%';
+```
