@@ -3,6 +3,10 @@ spring:
     name: acl
   cloud:
     nacos:
+      # discovery:
+        # server-addr: ${config_server_uri:${CONFIG_SERVER_URI:http://localhost:8848}}
+        # namespace: drs
       config:
-        server-addr: 127.0.0.1:8848
+        # namespace: drs
+        server-addr: ${config_server_uri:${CONFIG_SERVER_URI:http://localhost:8848}}
         file-extension: yml
